@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이 모텔 사도 되는지 결론 드립니다 | 스타빌드</title>
+<meta name="description" content="숙박업 직접 운영 20년 공인중개사가 매물 수익 구조·대출·리스크를 계약 전에 분석해드립니다.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+  :root {
+    --black: #0a0a0a;
+    --dark: #111111;
+    --card: #1a1a1a;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --gray: #888;
+    --border: #2a2a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Noto Sans KR', sans-serif;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .top-bar {
+    background: var(--gold);
+    color: var(--black);
+    text-align: center;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+
+  header {
+    background: var(--dark);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Noto Serif KR', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--gold);
+  }
+  .logo span { color: var(--cream); font-size: 12px; font-weight: 400; display: block; margin-top: 2px; }
+  .header-badge {
+    background: #1f1f1f;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 12px;
+    color: var(--gold);
+  }
+
+  .hero {
+    padding: 60px 24px 50px;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 28px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(26px, 6vw, 40px);
+    font-weight: 900;
+    line-height: 1.35;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 36px;
+    line-height: 1.8;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 18px 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: background 0.2s;
+    margin-bottom: 14px;
+  }
+  .hero-cta:hover { background: var(--gold-light); }
+  .hero-note { font-size: 12px; color: var(--gray); }
+  .hero-note span { color: #e55; font-weight: 700; }
+
+  .sep { height: 1px; background: var(--border); margin: 0; }
+
+  .section {
+    padding: 50px 24px;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .section h2 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    margin-bottom: 24px;
+    line-height: 1.5;
+  }
+
+  .pain-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+  .pain-list li {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid #e55;
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .pain-list li strong { color: #ff7070; display: block; margin-bottom: 4px; font-size: 15px; }
+
+  .solution-box {
+    background: linear-gradient(135deg, #1a1500, #1f1a00);
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    padding: 32px 28px;
+    text-align: center;
+  }
+  .solution-box .big {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(18px, 4vw, 26px);
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+  .solution-box p { color: #b0a880; font-size: 14px; line-height: 1.8; }
+
+  .products { display: flex; flex-direction: column; gap: 16px; }
+  .product-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .product-card.featured {
+    border-color: var(--gold);
+    background: linear-gradient(135deg, #1a1500, #1c1c00);
+  }
+  .product-card.featured::before {
+    content: '🔥 인기';
+    position: absolute;
+    top: 14px; right: 16px;
+    background: var(--gold);
+    color: var(--black);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+  .product-name { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .product-desc { font-size: 13px; color: var(--gray); margin-bottom: 18px; line-height: 1.7; }
+  .product-includes { list-style: none; margin-bottom: 22px; display: flex; flex-direction: column; gap: 7px; }
+  .product-includes li { font-size: 13px; color: #b0b0b0; }
+  .product-includes li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
+  .product-price { font-family: 'Noto Serif KR', serif; font-size: 28px; font-weight: 900; color: var(--gold); margin-bottom: 16px; }
+  .product-price small { font-size: 14px; color: var(--gray); font-weight: 400; font-family: 'Noto Sans KR', sans-serif; }
+  .btn-buy { display: block; width: 100%; padding: 15px; border-radius: 4px; font-weight: 700; font-size: 15px; cursor: pointer; border: none; transition: all 0.2s; text-align: center; }
+  .btn-gold { background: var(--gold); color: var(--black); }
+  .btn-gold:hover { background: var(--gold-light); }
+  .btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+  .btn-outline:hover { background: rgba(201,168,76,0.1); }
+
+  .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .trust-item { background: var(--card); border: 1px solid var(--border); border-radius: 6px; padding: 20px 16px; text-align: center; }
+  .trust-item .num { font-family: 'Noto Serif KR', serif; font-size: 26px; font-weight: 900; color: var(--gold); display: block; margin-bottom: 4px; }
+  .trust-item .label { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+  .scarcity {
+    background: #1a0000;
+    border: 1px solid #5a1a1a;
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .scarcity strong { color: #ff7070; }
+  .scarcity span { font-size: 13px; color: #c0a0a0; }
+
+  .final-cta {
+    background: linear-gradient(180deg, var(--dark), #0a0a00);
+    border-top: 1px solid var(--border);
+    padding: 50px 24px 60px;
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .final-cta h2 { font-family: 'Noto Serif KR', serif; font-size: clamp(20px, 5vw, 30px); font-weight: 900; margin-bottom: 14px; line-height: 1.4; }
+  .final-cta h2 em { color: var(--gold); font-style: normal; }
+  .final-cta p { color: var(--gray); font-size: 14px; margin-bottom: 30px; line-height: 1.8; }
+
+  footer { background: #080808; border-top: 1px solid var(--border); padding: 30px 24px; text-align: center; }
+  .footer-biz { font-size: 12px; color: #555; line-height: 2; }
+  .footer-biz strong { color: #777; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">📢 현재 선착순 2건 한정 — 오늘 마감 가능성 있음</div>
+
+<header>
+  <div class="logo">STAR BUILD<span>스타빌드공인중개사사무소</span></div>
+  <div class="header-badge">공인중개사 등록 #28237</div>
+</header>
+
+<div class="hero">
+  <div class="hero-tag">숙박업 투자 의사결정 설계</div>
+  <h1>이 모텔,<br><em>사도 되는지</em><br>결론 드립니다</h1>
+  <p class="hero-sub">수익률 계산은 누구나 합니다.<br>진짜 문제는 <strong style="color:var(--cream)">대출·공사비·리스크 구조</strong>를<br>계약 전에 아무도 알려주지 않는다는 것입니다.</p>
+  <a class="hero-cta" href="#products">지금 매물 분석 신청하기 →</a>
+  <div class="hero-note"><span>⚑ 하루 선착순 2건</span> · 결제 즉시 분석 시작</div>
+</div>
+
+<div class="sep"></div>
+
+<div class="section">
+  <div class="section-label">당신이 지금 겪고 있는 것</div>
+  <h2>계약 직전,<br>이 중 하나라도 해당되시나요?</h2>
+  <ul class="pain-list">
+    <li><strong>📉 수익률만 보고 계약했다가 낭패</strong>중개사가 제시한 수익률, 실제 운영해보니 절반도 안 나왔습니다</li>
+    <li><strong>🔨 예상 못한 공사비로 수천만 원 추가 지출</strong>리모델링 견적은 계약 후 두 배가 됩니다</li>
+    <li><strong>🏦 대출이 막혀 계약금 날릴 뻔한 경험</strong>잔금 직전 대출 거절 — 이미 계약금은 지불된 상태</li>
+  </ul>
+</div>
+
+<div class="sep"></div>
+
+<div class="section">
+  <div class="section-label">스타빌드의 접근</div>
+  <div class="solution-box">
+    <div class="big">"구조로 판단합니다.<br>감이 아니라."</div>
+    <p>숙박업 직접 운영 20년 경험을 바탕으로<br>수익 구조 · 대출 가능성 · 리스크 포인트를<br>계약 전에 데이터로 설계해 드립니다</p>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<div class="section" id="products">
+  <div class="section-label">선택하세요</div>
+  <h2>두 가지 방법으로<br>도와드립니다</h2>
+  <div class="scarcity">
+    <strong>⏰ 오늘 상담 가능 잔여: 2건</strong><br>
+    <span>퀄리티 유지를 위해 하루 2건만 진행합니다</span>
+  </div>
+  <div class="products">
+    <div class="product-card">
+      <div class="product-name">📘 숙박업 바이블</div>
+      <div class="product-desc">혼자서도 매물을 구조적으로 판단할 수 있는 기준서</div>
+      <ul class="product-includes">
+        <li>숙박업 투자 판단 기준 전문 PDF</li>
+        <li>수지분석 엑셀 시트 포함</li>
+        <li>매물 체크리스트 포함</li>
+        <li>즉시 다운로드 제공</li>
+      </ul>
+      <div class="product-price">199,000<small>원</small></div>
+      <button class="btn-buy btn-outline" onclick="showPayment('전자책')">전자책 구매하기 →</button>
+    </div>
+    <div class="product-card featured">
+      <div class="product-name">🔑 프리미엄 분석 패키지</div>
+      <div class="product-desc">전자책 + 1:1 매물 분석 상담 70분 · 가장 많이 선택하는 구조</div>
+      <ul class="product-includes">
+        <li>숙박업 바이블 PDF 포함</li>
+        <li>1:1 매물 구조 분석 상담 (70분)</li>
+        <li>진행 / 보류 / 비추천 명확한 판정</li>
+        <li>대출 가능성 사전 검토</li>
+        <li>상담 후 요약 리포트 제공</li>
+      </ul>
+      <div class="product-price">499,000<small>원</small></div>
+      <button class="btn-buy btn-gold" onclick="showPayment('프리미엄')">프리미엄 패키지 신청하기 →</button>
+    </div>
+  </div>
+</div>
+
+<!-- 결제 안내 모달 -->
+<div id="payModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#1a1a1a;border:1px solid #c9a84c;border-radius:10px;padding:32px 28px;max-width:360px;width:90%;position:relative;">
+    <button onclick="closePayment()" style="position:absolute;top:14px;right:16px;background:none;border:none;color:#888;font-size:20px;cursor:pointer;">✕</button>
+    <div style="font-family:'Noto Serif KR',serif;font-size:18px;font-weight:900;color:#c9a84c;margin-bottom:6px;">결제 안내</div>
+    <div id="modalProduct" style="font-size:13px;color:#888;margin-bottom:20px;"></div>
+    <div style="background:#111;border:1px solid #2a2a2a;border-radius:6px;padding:18px;margin-bottom:20px;font-size:14px;line-height:2;">
+      <strong style="color:#f5f0e8;">입금 계좌</strong><br>
+      <span style="color:#c9a84c;font-size:16px;font-weight:700;">우체국 110-0043-76371</span><br>
+      <span style="color:#aaa;">예금주: 최근호</span>
+    </div>
+    <div style="font-size:13px;color:#aaa;line-height:1.9;margin-bottom:20px;">
+      입금 후 아래 정보를 문자로 보내주세요<br>
+      <strong style="color:#f5f0e8;">010-8234-0434</strong><br>
+      · 성함 &nbsp;· 연락처 &nbsp;· 구매상품명
+    </div>
+    <a href="sms:01082340434" class="btn-buy btn-gold" style="text-decoration:none;display:block;text-align:center;">문자로 입금 완료 알리기 →</a>
+    <div style="font-size:11px;color:#555;margin-top:14px;line-height:1.7;">※ 단순 변심 환불 불가<br>※ 상담 상품은 일정 조율 후 진행</div>
+  </div>
+</div>
+
+<script>
+function showPayment(type) {
+  document.getElementById('modalProduct').textContent =
+    type === '전자책' ? '📘 숙박업 바이블 — 199,000원' : '🔑 프리미엄 분석 패키지 — 499,000원';
+  const modal = document.getElementById('payModal');
+  modal.style.display = 'flex';
+}
+function closePayment() {
+  document.getElementById('payModal').style.display = 'none';
+}
+</script>
+
+<div class="sep"></div>
+
+<div class="section">
+  <div class="section-label">왜 스타빌드인가</div>
+  <h2>숫자로 증명합니다</h2>
+  <div class="trust-grid">
+    <div class="trust-item"><span class="num">20년</span><span class="label">숙박업<br>직접 운영 경험</span></div>
+    <div class="trust-item"><span class="num">공인<br>중개사</span><span class="label">등록번호<br>28237-2024-00085</span></div>
+    <div class="trust-item"><span class="num">수억</span><span class="label">고객 투자 결정<br>직접 설계</span></div>
+    <div class="trust-item"><span class="num">3단계</span><span class="label">진행·보류·비추천<br>명확한 판정</span></div>
+  </div>
+</div>
+
+<div class="sep"></div>
+
+<div class="final-cta">
+  <h2>지금 보고 있는 매물,<br><em>보내주시면<br>미리 분석해드립니다</em></h2>
+  <p>계약서에 도장 찍기 전이 마지막 기회입니다.<br>잘못된 결정 한 번이 수천만 원입니다.</p>
+  <a class="hero-cta" href="#products">프리미엄 분석 신청하기 →</a>
+</div>
+
+<footer>
+  <div class="footer-biz">
+    <strong>스타빌드공인중개사사무소</strong><br>
+    대표자: 최근호 · 연락처: 010-8234-0434<br>
+    사업자등록번호: 644-42-01167 · 통신판매업 신고번호: 【신고 완료 후 기입】<br>
+    공인중개사 등록번호: 28237-2024-00085
+  </div>
+</footer>
+
+</body>
+</html>
