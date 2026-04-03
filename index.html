@@ -108,15 +108,20 @@
     background: var(--gold);
     color: var(--black);
     font-weight: 700;
-    font-size: 16px;
-    padding: 18px 40px;
+    font-size: 17px;
+    padding: 20px 48px;
     border-radius: 4px;
     cursor: pointer;
     border: none;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 24px rgba(201,168,76,0.35);
+    letter-spacing: 0.3px;
   }
-  .hero-cta:hover { background: var(--gold-light); }
+  .hero-cta:hover {
+    background: var(--gold-light);
+    box-shadow: 0 6px 32px rgba(201,168,76,0.55);
+  }
 
   /* 카카오 긴급 상담 버튼 */
   .hero-kakao {
@@ -249,12 +254,14 @@
   .product-includes li::before { content: '✓ '; color: var(--gold); font-weight: 700; }
   .product-price {
     font-family: 'Noto Serif KR', serif;
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 900;
     color: var(--gold);
     margin-bottom: 6px;
+    text-shadow: 0 0 20px rgba(201,168,76,0.3);
+    letter-spacing: -0.5px;
   }
-  .product-price small { font-size: 14px; color: var(--gray); font-weight: 400; font-family: 'Noto Sans KR', sans-serif; }
+  .product-price small { font-size: 16px; color: var(--gray); font-weight: 400; font-family: 'Noto Sans KR', sans-serif; }
   .product-note { font-size: 12px; color: var(--gray); margin-bottom: 8px; }
 
   /* ⑤ 구매 버튼 위 행동 유도 문장 */
@@ -423,6 +430,35 @@
   }
   .footer-biz { font-size: 12px; color: #555; line-height: 2.2; }
   .footer-biz strong { color: #777; }
+  /* 모바일 터치 영역 최적화 */
+  @media (max-width: 480px) {
+    .hero-cta {
+      display: block;
+      width: 100%;
+      padding: 22px 24px;
+      font-size: 17px;
+    }
+    .hero-kakao {
+      display: block;
+      width: 100%;
+      padding: 16px 24px;
+      font-size: 14px;
+      text-align: center;
+      margin-top: 10px;
+    }
+    .btn-buy {
+      padding: 20px;
+      font-size: 17px;
+    }
+    .btn-consult {
+      padding: 17px;
+      font-size: 14px;
+    }
+    .modal-sms {
+      padding: 18px;
+      font-size: 16px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -447,6 +483,11 @@
   <!-- ② 공포 한 줄 -->
   <p class="hero-fear">
     지금 검토 중인 매물, 이 구조에서 자유롭다고 확신하실 수 있으신가요?
+  </p>
+
+  <p style="margin-top:10px; margin-bottom:24px; font-size:13px; color:#aaa; line-height:1.8;">
+    이 내용은 모텔·호텔 매수를 실제로 검토 중이거나,<br>
+    리모델링 또는 대출까지 함께 고려하고 있는 분들을 위한 기준입니다
   </p>
 
   <a class="hero-cta" href="#product">내 매물 구조, 지금 확인하기 →</a><br>
@@ -540,23 +581,28 @@
 
     <!-- 업데이트 안내 강조 박스 -->
     <div style="
-      margin: 14px 0 20px;
-      padding: 14px 16px;
-      background: rgba(201,168,76,0.08);
-      border: 1px solid var(--gold);
-      border-radius: 6px;
+      margin: 16px 0 22px;
+      padding: 18px 20px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.13), rgba(201,168,76,0.05));
+      border: 1.5px solid var(--gold);
+      border-radius: 8px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
+      box-shadow: 0 2px 16px rgba(201,168,76,0.12);
     ">
-      <span style="font-size: 20px; flex-shrink:0;">📩</span>
-      <span style="font-size: 13px; color: var(--gold-light); line-height: 1.7;">
-        <strong style="display:block; margin-bottom:2px; color: var(--gold);">구매 고객 전용 업데이트 안내</strong>
-        전자책 내용에 주요 업데이트가 있을 경우,<br>구매 고객에 한해 이메일로 안내드립니다
+      <span style="font-size: 26px; flex-shrink:0;">📩</span>
+      <span style="font-size: 13px; color: var(--gold-light); line-height: 1.8;">
+        <strong style="display:block; margin-bottom:4px; font-size:14px; color: var(--gold); letter-spacing:0.3px;">구매 고객 전용 업데이트 안내</strong>
+        전자책 내용에 주요 업데이트가 있을 경우,<br>구매 고객에 한해 이메일로 최신 내용 안내를 드립니다
       </span>
     </div>
 
     <!-- ⑤ 구매 버튼 위 행동 유도 문장 -->
+    <p style="margin-bottom:12px; font-size:13px; color:#888; line-height:1.9;">
+      결제 후 안내 문자 발송 → 입금 확인 → 이메일로 전자책 전달<br>
+      (영업일 기준 1일 이내)
+    </p>
     <div class="pre-buy-nudge">
       혼자 판단하기 어렵다면, 먼저 기준부터 확인해보셔도 좋습니다.
     </div>
@@ -648,6 +694,11 @@ function closePayment() {
 
 <!-- 판매 고지 -->
 <div class="section">
+  <div style="margin-bottom:24px; padding:18px; border:1px solid #2a2a2a; background:#111; border-radius:6px; font-size:13px; color:#888; line-height:1.9;">
+    이 전자책은 모든 분에게 적합한 내용이 아닙니다.<br>
+    단순 정보만 찾거나 감으로 투자하려는 분께는 맞지 않습니다.<br><br>
+    <span style="color:#c0b89a;">구조를 기준으로 판단하고자 하는 분께 적합한 자료입니다.</span>
+  </div>
   <div class="section-label">구매 전 확인사항</div>
   <div class="notice-box">
     <strong>본 전자책은 숙박업 투자와 관련된 일반적인 정보 제공을 목적으로 제작된 자료입니다.</strong><br>
