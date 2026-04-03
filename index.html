@@ -17,6 +17,8 @@
     --cream: #f5f0e8;
     --gray: #888;
     --border: #2a2a2a;
+    --red-dim: #8b2020;
+    --red-text: #e05050;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -53,7 +55,7 @@
     color: var(--gold);
   }
 
-  /* HERO */
+  /* ───── HERO ───── */
   .hero {
     padding: 60px 24px 50px;
     max-width: 680px;
@@ -71,6 +73,8 @@
     margin-bottom: 28px;
     text-transform: uppercase;
   }
+
+  /* ① HERO 헤드라인 수정 */
   .hero h1 {
     font-family: 'Noto Serif KR', serif;
     font-size: clamp(24px, 6vw, 38px);
@@ -80,12 +84,25 @@
     margin-bottom: 16px;
   }
   .hero h1 em { color: var(--gold); font-style: normal; }
+
   .hero-sub {
     color: var(--gray);
     font-size: 14px;
-    margin-bottom: 36px;
+    margin-bottom: 20px;
     line-height: 1.9;
   }
+
+  /* ② HERO 아래 공포 한 줄 */
+  .hero-fear {
+    margin: 0 auto 28px;
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 500;
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+    padding: 14px 0;
+  }
+
   .hero-cta {
     display: inline-block;
     background: var(--gold);
@@ -100,6 +117,21 @@
     transition: background 0.2s;
   }
   .hero-cta:hover { background: var(--gold-light); }
+
+  /* 카카오 긴급 상담 버튼 */
+  .hero-kakao {
+    display: inline-block;
+    margin-top: 14px;
+    background: #3A1D96;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 11px 24px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .hero-kakao:hover { background: #4d28b8; }
 
   .sep { height: 1px; background: var(--border); }
 
@@ -123,6 +155,37 @@
     line-height: 1.5;
   }
 
+  /* ③ 실패 트리거 블록 */
+  .fail-trigger {
+    margin-bottom: 36px;
+    padding: 24px 22px;
+    border: 1px solid #2a2a2a;
+    background: #111;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #bbb;
+    line-height: 2;
+  }
+  .fail-trigger strong {
+    display: block;
+    color: var(--red-text);
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .fail-trigger ul {
+    list-style: none;
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .fail-trigger ul li::before {
+    content: '✗ ';
+    color: var(--red-text);
+    font-weight: 700;
+  }
+  .fail-trigger ul li { color: #aaa; font-size: 13px; }
+
   /* 목차 */
   .toc-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
   .toc-list li {
@@ -144,6 +207,18 @@
   }
   .toc-text { line-height: 1.6; color: #c0b89a; }
   .toc-text strong { color: var(--cream); display: block; margin-bottom: 2px; font-size: 14px; }
+
+  /* ④ 가격 위 결정 압박 */
+  .price-pressure {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--gold-light);
+    font-weight: 500;
+    text-align: center;
+    padding: 12px 0;
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+  }
 
   /* 상품 카드 */
   .product-card {
@@ -180,7 +255,16 @@
     margin-bottom: 6px;
   }
   .product-price small { font-size: 14px; color: var(--gray); font-weight: 400; font-family: 'Noto Sans KR', sans-serif; }
-  .product-note { font-size: 12px; color: var(--gray); margin-bottom: 24px; }
+  .product-note { font-size: 12px; color: var(--gray); margin-bottom: 8px; }
+
+  /* ⑤ 구매 버튼 위 행동 유도 문장 */
+  .pre-buy-nudge {
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 14px;
+    line-height: 1.7;
+  }
+
   .btn-buy {
     display: block;
     width: 100%;
@@ -196,6 +280,25 @@
     text-align: center;
   }
   .btn-buy:hover { background: var(--gold-light); }
+
+  /* 상담 버튼 (카카오) */
+  .btn-consult {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px solid #444;
+    background: transparent;
+    color: #bbb;
+    text-align: center;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-consult:hover { border-color: var(--gold); color: var(--gold); }
 
   /* 모달 */
   #payModal {
@@ -257,7 +360,7 @@
     margin-top: 14px; line-height: 1.8;
   }
 
-  /* 신뢰 */
+  /* ⑥ 신뢰 영역 */
   .trust-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .trust-item {
     background: var(--card);
@@ -272,6 +375,33 @@
     color: var(--gold); display: block; margin-bottom: 4px;
   }
   .trust-item .label { font-size: 12px; color: var(--gray); line-height: 1.5; }
+
+  /* 인터뷰 전문가 영역 */
+  .expert-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .expert-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #aaa;
+  }
+  .expert-item strong { color: var(--cream); display: block; margin-bottom: 2px; font-size: 14px; }
+
+  .trust-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #aaa;
+    text-align: center;
+    line-height: 1.8;
+    font-style: italic;
+  }
 
   /* 고지 박스 */
   .notice-box {
@@ -302,24 +432,54 @@
   <div class="header-badge">공인중개사 제28237-2024-00085호</div>
 </header>
 
-<!-- HERO -->
+<!-- ① HERO — 헤드라인 수정 -->
 <div class="hero">
   <div class="hero-tag">정보 제공용 전자책</div>
-  <h1>숙박업 투자,<br><em>스스로 판단할 수 있는</em><br>기준을 드립니다</h1>
+  <h1>지금 보고 있는 매물,<br><em>들어가도 괜찮으신가요?</em></h1>
   <p class="hero-sub">
-    모텔·호텔 매물을 검토할 때 꼭 확인해야 할<br>
-    수익 구조 · 대출 조건 · 리스크 포인트를<br>
-    체계적으로 정리한 전자책입니다
+    많은 분들이 '괜찮아 보이는 매물'에서 시작합니다.<br>
+    문제는, 구조를 잘못 보면<br>
+    결과는 이미 다른 방향으로 흘러가기 시작한다는 점입니다.<br><br>
+    이 전자책은 감이 아니라,<br>
+    실제로 버틸 수 있는 구조인지 판단하는 기준을 제공합니다.
   </p>
-  <a class="hero-cta" href="#product">전자책 구매하기 →</a>
+
+  <!-- ② 공포 한 줄 -->
+  <p class="hero-fear">
+    지금 검토 중인 매물, 이 구조에서 자유롭다고 확신하실 수 있으신가요?
+  </p>
+
+  <a class="hero-cta" href="#product">내 매물 구조, 지금 확인하기 →</a><br>
+  <a class="hero-kakao" href="https://open.kakao.com/o/sfCNDB9h" target="_blank">
+    도장 찍기 직전이라 급하신 분 → 1:1 긴급 진단
+  </a>
+  <p style="margin-top:12px; font-size:12px; color:#aaa;">
+    지금 검토 중인 매물이 있다면, 이 단계에서 확인하시는 것이 가장 안전합니다
+  </p>
 </div>
 
 <div class="sep"></div>
 
-<!-- 목차 -->
+<!-- ③ 실패 트리거 블록 — 목차 위 -->
 <div class="section">
   <div class="section-label">수록 내용</div>
   <h2>이런 내용을<br>담고 있습니다</h2>
+
+  <div class="fail-trigger">
+    <strong>많은 실패는 운영이 아니라, 처음 선택한 구조에서 시작됩니다.</strong>
+    열심히 할수록 더 버티기 어려운 구조,<br>
+    공사비를 써도 바뀌지 않는 구조,<br>
+    대출이 막히는 구조는 이미 처음에 정해져 있습니다.<br>
+    <ul>
+      <li>매출장부 숫자를 믿고 들어갔다가 실제 수익이 절반도 안 나온 경우</li>
+      <li>리모델링 후 오픈했지만 OTA 노출 공백기에 예비비가 소진된 경우</li>
+      <li>입지 자체에 숙박 수요가 없어 아무리 운영해도 가격 저항이 반복된 경우</li>
+    </ul>
+  </div>
+  <p style="margin-top:10px; margin-bottom:28px; color:#e05050; font-size:13px;">
+    잘못된 구조 하나로 몇 년의 시간이 뒤집히는 경우도 실제로 존재합니다
+  </p>
+
   <ul class="toc-list">
     <li>
       <span class="toc-num">01</span>
@@ -354,6 +514,17 @@
 <div class="section" id="product">
   <div class="section-label">구매 안내</div>
   <h2>숙박업 바이블</h2>
+
+  <!-- 희소성 압박 -->
+  <p style="margin-bottom:12px; font-size:13px; color:#aaa; text-align:center;">
+    ※ 개별 점검은 일정 범위 내에서만 진행되므로, 상황에 따라 제한될 수 있습니다
+  </p>
+
+  <!-- ④ 가격 위 결정 압박 한 줄 -->
+  <div class="price-pressure">
+    이 판단 하나가 향후 몇 년의 결과를 좌우할 수 있습니다
+  </div>
+
   <div class="product-card">
     <div class="product-name">📘 숙박업 바이블</div>
     <div class="product-type">정보 제공용 전자책 (PDF)</div>
@@ -366,7 +537,40 @@
     </ul>
     <div class="product-price">199,000<small>원</small></div>
     <div class="product-note">부가세 포함 · 디지털 상품 특성상 환불 불가</div>
-    <button class="btn-buy" onclick="showPayment()">구매하기 →</button>
+
+    <!-- 업데이트 안내 강조 박스 -->
+    <div style="
+      margin: 14px 0 20px;
+      padding: 14px 16px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    ">
+      <span style="font-size: 20px; flex-shrink:0;">📩</span>
+      <span style="font-size: 13px; color: var(--gold-light); line-height: 1.7;">
+        <strong style="display:block; margin-bottom:2px; color: var(--gold);">구매 고객 전용 업데이트 안내</strong>
+        전자책 내용에 주요 업데이트가 있을 경우,<br>구매 고객에 한해 이메일로 안내드립니다
+      </span>
+    </div>
+
+    <!-- ⑤ 구매 버튼 위 행동 유도 문장 -->
+    <div class="pre-buy-nudge">
+      혼자 판단하기 어렵다면, 먼저 기준부터 확인해보셔도 좋습니다.
+    </div>
+    <p style="margin-bottom:12px; font-size:13px; color:#e05050; font-weight:500;">
+      지금 단계에서 확인하지 않으면, 이후에는 되돌리기 어려운 선택이 될 수 있습니다
+    </p>
+
+    <button class="btn-buy" onclick="showPayment()">내 매물의 구조, 지금 확인하기 →</button>
+    <p style="margin-top:10px; font-size:12px; color:#888;">
+      지금 단계에서 기준을 확인하는 것만으로도, 피할 수 있는 구조는 분명히 존재합니다
+    </p>
+    <a class="btn-consult" href="https://open.kakao.com/o/sfCNDB9h" target="_blank">
+      도장 찍기 전 1:1 긴급 진단 받기 (카카오 오픈채팅)
+    </a>
   </div>
 </div>
 
@@ -406,16 +610,38 @@ function closePayment() {
 
 <div class="sep"></div>
 
-<!-- 신뢰 -->
+<!-- ⑥ 신뢰 영역 — 사람 강조 추가 -->
 <div class="section">
   <div class="section-label">발행인 소개</div>
   <h2>이 책을 만든 사람</h2>
+  <p style="margin-top:16px; font-size:13px; color:#aaa;">
+    이 기준은 실제 매물 중개와 운영 현장에서 반복 확인된 구조를 정리한 것입니다
+  </p>
+
   <div class="trust-grid">
     <div class="trust-item"><span class="num">20년</span><span class="label">숙박업<br>직접 운영 경험</span></div>
     <div class="trust-item"><span class="num">공인<br>중개사</span><span class="label">제28237-2024-00085호</span></div>
     <div class="trust-item"><span class="num">모텔·<br>호텔</span><span class="label">전문 중개<br>실무 경험</span></div>
     <div class="trust-item"><span class="num">현장<br>데이터</span><span class="label">실제 매물 기반<br>사례 수록</span></div>
   </div>
+
+  <!-- 인터뷰 전문가 -->
+  <div class="expert-row">
+    <div class="expert-item">
+      <strong>김흥용 대표 — 숙박업 30년</strong>
+      모텔 컨설팅·직접 운영·숙박업 전문 중개. 현장에서 반복 확인된 투자 타이밍과 리스크 구조를 직접 인터뷰로 담았습니다.
+    </div>
+    <div class="expert-item">
+      <strong>김혜란 영업이사 — 숙박업 전문 중개 20년</strong>
+      전국 모텔 영업, 매출 감별, 협상 전략, 대출 구조 실무를 담당합니다.
+    </div>
+    <div class="expert-item">
+      <strong>김도연 부장·유우희 과장 — 모텔·호텔 직접 운영 15년</strong>
+      OTA 실전 관리·무인화 전략·단골 확보까지, 직접 운영 경험에서 나온 노하우를 정리했습니다.
+    </div>
+  </div>
+
+  <p class="trust-note">현장에서 반복해서 확인된 기준만 정리했습니다</p>
 </div>
 
 <div class="sep"></div>
@@ -424,11 +650,10 @@ function closePayment() {
 <div class="section">
   <div class="section-label">구매 전 확인사항</div>
   <div class="notice-box">
-    <strong>본 전자책은 숙박업 투자에 관한 정보 제공을 목적으로 합니다.</strong><br>
-    수록된 내용은 일반적인 시장 정보 및 실무 경험을 바탕으로 작성된 참고 자료이며,
-    개별 투자 결정에 대한 법적 책임을 지지 않습니다.<br>
-    디지털 파일 특성상 결제 완료 후 단순 변심에 의한 환불은 불가합니다.<br>
-    파일 수령 후 내용 오류가 확인될 경우 교환 가능합니다.
+    <strong>본 전자책은 숙박업 투자와 관련된 일반적인 정보 제공을 목적으로 제작된 자료입니다.</strong><br>
+    수록된 내용은 시장 정보 및 실무 경험을 바탕으로 정리된 참고 자료이며, 개별 투자 결과를 보장하거나 특정 수익을 확정하는 자료가 아닙니다.<br>
+    투자 판단은 독자의 책임 하에 이루어져야 하며, 본 자료는 이를 돕기 위한 참고 기준으로 제공됩니다.<br>
+    디지털 콘텐츠의 특성상 결제 완료 후 단순 변심에 의한 환불은 불가합니다. 단, 파일 자체의 중대한 오류 또는 열람 불가 등의 문제가 확인될 경우에 한해 확인 후 교환 또는 재제공이 가능합니다.
   </div>
 </div>
 
@@ -439,7 +664,7 @@ function closePayment() {
     <strong>스타빌드공인중개사사무소</strong><br>
     대표자: 최근호 &nbsp;·&nbsp; 연락처: 010-8234-0434<br>
     사업자등록번호: 644-42-01167<br>
-    통신판매업 신고번호: 신고 완료 후 기입<br>
+    통신판매업 신고번호: 제2026-인천부평-0653호<br>
     공인중개사 등록번호: 제28237-2024-00085호
   </div>
 </footer>
